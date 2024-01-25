@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC TREADING 24</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        th, td {
+            border: 1px solid white;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #333;
+        }
+
+        input {
+            padding: 5px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>FC TREADING 24</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Cena</th>
+                <th>Imię i Nazwisko</th>
+                <th>Akcja</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" id="cena"></td>
+                <td><input type="text" id="imieNazwisko"></td>
+                <td><button onclick="oblicz()">Oblicz</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="wynik"></div>
+
+    <script>
+        function oblicz() {
+            var cenaInput = document.getElementById("cena");
+            var imieNazwiskoInput = document.getElementById("imieNazwisko");
+
+            var cena = parseFloat(cenaInput.value);
+            var imieNazwisko = imieNazwiskoInput.value;
+
+            if (!isNaN(cena)) {
+                var wynik = cena * 0.95;
+                document.getElementById("wynik").innerHTML = "<p>Wynik dla " + imieNazwisko + ": " + wynik.toFixed(2) + "</p>";
+            } else {
+                alert("Podaj poprawną cenę.");
+            }
+        }
+    </script>
+
+</body>
+</html>
